@@ -3,10 +3,9 @@ const city_name = document.getElementById("city");
 const weather = document.getElementById("weather");
 const temperature = document.getElementById("temperature");
 
+const button = document.getElementById("geolocation");
+
 city_name.innerHTML = "Nancy";
-
-
-window.onload = function(){
 
     const weatherIndex = {
         0: "Ciel dégagé",
@@ -39,16 +38,37 @@ window.onload = function(){
         99: "Orage avec forte grêle"
     }
 
-    function getPos(){
+    button.addEventListener("click", function(){
+
         navigator.geolocation.getCurrentPosition((position) => {
             let lat = position.coords.latitude;
-            let lon = position.coords.longitude;
-            return lat, lon;
-          })   
-    }
+            let lon = position.coords.longitude; 
+            fetch(APIurl(lat, lon))
+                .then(response => response.json())
+                .then((data) => {
+                    console.log(data);
+                })
+                    
 
-    console.log(getPos());
+            
+            
+        }) 
+         
+    })
+          
+        function APIurl(lat, lon){
+            console.log(lat);
+            console.log(lon);
+            return url = "https://api.open-meteo.com/v1/forecast?latitude=" + lat + "&longitude=" + lon + "&hourly=temperature_2m,weathercode"
+        }
 
 
 
-}
+
+        
+   
+
+ 
+
+
+
