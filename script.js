@@ -56,7 +56,7 @@ city_name.innerHTML = "Nancy";
                     
                     function getNearestDate(currentDate){
                         for(let i = 0; i <= data.hourly.time.length - 1 ; i++){
-                            let result = Math.sqrt((data.hourly.time[i] - currentDate)**2 + (data.hourly.time[i] - currentDate)**2);
+                            let result = (currentDate / 1000) - data.hourly.time[i];
                             console.log(result);
                             result_array.push(result);
                             let lowest_value = Math.min.apply(Math, result_array);
