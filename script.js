@@ -1,4 +1,3 @@
-//Idée : Intégrer var lat et lon pour localisation GPS immédiate et météo customisée dans l'URL.
 const city_name = document.getElementById("city");
 const weather = document.getElementById("weather");
 const temperature = document.getElementById("temperature");
@@ -69,8 +68,7 @@ city_name.innerHTML = "Nancy";
             return url = "https://api.open-meteo.com/v1/forecast?latitude=" + lat + "&longitude=" + lon + "&hourly=temperature_2m,weathercode&start_date=" + date + "&end_date=" + date;
         }
 
-        function convertStampDate(unixtimestamp){
-            //A analyser    
+        function convertStampDate(unixtimestamp){   
             var convertedDate = new Date(unixtimestamp).toISOString().slice(0, 10);
             return convertedDate;
         }
@@ -80,22 +78,3 @@ city_name.innerHTML = "Nancy";
             var currentHour = currentTime.getHours();
             return currentHour;
         }
-
-        
-
-
-
-
-           
-
-
-            
-
-
-        
-   
-
- 
-
-
-
