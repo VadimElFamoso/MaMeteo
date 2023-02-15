@@ -46,7 +46,7 @@ city_name.innerHTML = "Nancy";
                 .then(response => response.json())
                 .then((data) => {   
                     console.log(data);
-                    let currentTemperature = data.hourly.temperature_2m[getNearestDate()];
+                    let currentTemperature = Math.round(data.hourly.temperature_2m[getNearestDate()]);
                     let currentWeatherCode = data.hourly.weathercode[getNearestDate()];
                     let currentWeather = weatherIndex[currentWeatherCode];
             
